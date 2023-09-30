@@ -5,20 +5,17 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        for(int i = 1; i <= n; i++){
-            snt(i);
+        if(n <=0 || n > 20){
+            System.out.println("So "+ n + " khong hop le");
         }
-    }
-
-    static void snt(int n) {
-        int count = 0;
-        for(int i = 1; i <= n; i++){
-            if(n % i == 0){
-                count++;
+        int[] a = new int[20];
+        a[0] = 1;
+        a[1] = 1;
+        for(int i = 2; i < 20; i++){
+            a[i] = a[i - 2] + a[i - 1];
+            if(i == n){
+                System.out.println(a[i]);
             }
-        }
-        if(count++ == 2){
-            System.out.println(n);
         }
     }
 }
