@@ -11,6 +11,12 @@ public class Main {
             a[i] = sc.nextInt();
             ans += a[i];
         }
-        System.out.println(ans / a.length);
+        int max = a[0];
+        for(int i = 0; i < n; i++){
+            if(max < a[i]){
+                max = a[i];
+            }
+        }
+        System.out.println(max);
     }
 }
