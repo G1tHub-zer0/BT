@@ -2,6 +2,18 @@ package Main;
 import java.util.Scanner;
 
 public class Main {
+    static void sort(int[] a){
+        int temp = 0;
+        for(int i = 0; i < a.length; i++){
+            for(int j = i + 1; j < a.length; j++){
+                if(a[i] > a[j]){
+                    temp = a[i];
+                    a[i] = a[j];
+                    a[j] = temp;
+                }
+            }
+        }
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
@@ -11,12 +23,9 @@ public class Main {
             a[i] = sc.nextInt();
             ans += a[i];
         }
-        int min = a[0];
+        sort(a);
         for(int i = 0; i < n; i++){
-            if(min > a[i]){
-                min = a[i];
-            }
+            System.out.println(a[i]);
         }
-        System.out.println(min);
     }
 }
