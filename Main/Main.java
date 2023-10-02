@@ -1,26 +1,23 @@
 package Main;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 public class Main {
+    static boolean check(String s, char c){
+        for(int i = 0; i < s.length(); i++){
+            if(s.charAt(i) == c){
+                return true;
+            }
+        }
+        return false;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String[] a = new String[5];
-        for(int i = 0; i < 5; i++){
-            a[i] = sc.next();
-            if(a[i].length() != 8){
-                System.out.println("Sai roi");
-                break;
-            }
+        String s = sc.nextLine();
+        char c = sc.next().charAt(0);
+        if(check(s, c) == true) {
+            System.out.println("Co");
+        }else{
+            System.out.println("Khong");
         }
-        String regex = "00[2,5]'L'[0,9]{4}";
-        for(int i = 0; i < 5; i++){
-            boolean isvalid  = Pattern.matches(regex, a[i]);
-            if(isvalid){
-                System.out.println("Sai roi");
-                break;
-            }
-        }
-        System.out.println("Dung roi");
     }
 }
